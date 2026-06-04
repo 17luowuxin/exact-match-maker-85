@@ -16,8 +16,16 @@ import { Route as LabRouteImport } from './routes/lab'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComicsRouteImport } from './routes/comics'
 import { Route as CharactersRouteImport } from './routes/characters'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as AdminWorksRouteImport } from './routes/admin.works'
+import { Route as AdminServicesRouteImport } from './routes/admin.services'
+import { Route as AdminMusicRouteImport } from './routes/admin.music'
+import { Route as AdminInquiriesRouteImport } from './routes/admin.inquiries'
+import { Route as AdminComicsRouteImport } from './routes/admin.comics'
+import { Route as AdminCharactersRouteImport } from './routes/admin.characters'
 
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
@@ -54,19 +62,60 @@ const CharactersRoute = CharactersRouteImport.update({
   path: '/characters',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
 } as any)
 const WorksSlugRoute = WorksSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const AdminWorksRoute = AdminWorksRouteImport.update({
+  id: '/works',
+  path: '/works',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminServicesRoute = AdminServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMusicRoute = AdminMusicRouteImport.update({
+  id: '/music',
+  path: '/music',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminInquiriesRoute = AdminInquiriesRouteImport.update({
+  id: '/inquiries',
+  path: '/inquiries',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminComicsRoute = AdminComicsRouteImport.update({
+  id: '/comics',
+  path: '/comics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCharactersRoute = AdminCharactersRouteImport.update({
+  id: '/characters',
+  path: '/characters',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/characters': typeof CharactersRoute
   '/comics': typeof ComicsRoute
   '/contact': typeof ContactRoute
@@ -74,7 +123,14 @@ export interface FileRoutesByFullPath {
   '/music': typeof MusicRoute
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
+  '/admin/characters': typeof AdminCharactersRoute
+  '/admin/comics': typeof AdminComicsRoute
+  '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/music': typeof AdminMusicRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/works': typeof AdminWorksRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -85,11 +141,19 @@ export interface FileRoutesByTo {
   '/music': typeof MusicRoute
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
+  '/admin/characters': typeof AdminCharactersRoute
+  '/admin/comics': typeof AdminComicsRoute
+  '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/music': typeof AdminMusicRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/works': typeof AdminWorksRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/characters': typeof CharactersRoute
   '/comics': typeof ComicsRoute
   '/contact': typeof ContactRoute
@@ -97,12 +161,20 @@ export interface FileRoutesById {
   '/music': typeof MusicRoute
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
+  '/admin/characters': typeof AdminCharactersRoute
+  '/admin/comics': typeof AdminComicsRoute
+  '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/music': typeof AdminMusicRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/works': typeof AdminWorksRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/characters'
     | '/comics'
     | '/contact'
@@ -110,7 +182,14 @@ export interface FileRouteTypes {
     | '/music'
     | '/services'
     | '/works'
+    | '/admin/characters'
+    | '/admin/comics'
+    | '/admin/inquiries'
+    | '/admin/music'
+    | '/admin/services'
+    | '/admin/works'
     | '/works/$slug'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -121,10 +200,18 @@ export interface FileRouteTypes {
     | '/music'
     | '/services'
     | '/works'
+    | '/admin/characters'
+    | '/admin/comics'
+    | '/admin/inquiries'
+    | '/admin/music'
+    | '/admin/services'
+    | '/admin/works'
     | '/works/$slug'
+    | '/admin'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/characters'
     | '/comics'
     | '/contact'
@@ -132,11 +219,19 @@ export interface FileRouteTypes {
     | '/music'
     | '/services'
     | '/works'
+    | '/admin/characters'
+    | '/admin/comics'
+    | '/admin/inquiries'
+    | '/admin/music'
+    | '/admin/services'
+    | '/admin/works'
     | '/works/$slug'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   CharactersRoute: typeof CharactersRoute
   ComicsRoute: typeof ComicsRoute
   ContactRoute: typeof ContactRoute
@@ -197,12 +292,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CharactersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/works/$slug': {
       id: '/works/$slug'
@@ -211,8 +320,72 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/admin/works': {
+      id: '/admin/works'
+      path: '/works'
+      fullPath: '/admin/works'
+      preLoaderRoute: typeof AdminWorksRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/services': {
+      id: '/admin/services'
+      path: '/services'
+      fullPath: '/admin/services'
+      preLoaderRoute: typeof AdminServicesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/music': {
+      id: '/admin/music'
+      path: '/music'
+      fullPath: '/admin/music'
+      preLoaderRoute: typeof AdminMusicRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/inquiries': {
+      id: '/admin/inquiries'
+      path: '/inquiries'
+      fullPath: '/admin/inquiries'
+      preLoaderRoute: typeof AdminInquiriesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/comics': {
+      id: '/admin/comics'
+      path: '/comics'
+      fullPath: '/admin/comics'
+      preLoaderRoute: typeof AdminComicsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/characters': {
+      id: '/admin/characters'
+      path: '/characters'
+      fullPath: '/admin/characters'
+      preLoaderRoute: typeof AdminCharactersRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
+
+interface AdminRouteChildren {
+  AdminCharactersRoute: typeof AdminCharactersRoute
+  AdminComicsRoute: typeof AdminComicsRoute
+  AdminInquiriesRoute: typeof AdminInquiriesRoute
+  AdminMusicRoute: typeof AdminMusicRoute
+  AdminServicesRoute: typeof AdminServicesRoute
+  AdminWorksRoute: typeof AdminWorksRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminCharactersRoute: AdminCharactersRoute,
+  AdminComicsRoute: AdminComicsRoute,
+  AdminInquiriesRoute: AdminInquiriesRoute,
+  AdminMusicRoute: AdminMusicRoute,
+  AdminServicesRoute: AdminServicesRoute,
+  AdminWorksRoute: AdminWorksRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
@@ -226,6 +399,7 @@ const WorksRouteWithChildren = WorksRoute._addFileChildren(WorksRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   CharactersRoute: CharactersRoute,
   ComicsRoute: ComicsRoute,
   ContactRoute: ContactRoute,
