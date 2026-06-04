@@ -112,7 +112,7 @@ function Home() {
               </Link>
               <Link to="/contact">
                 <GradientButton size="lg" variant="ghost">
-                  合作联系
+                  想要定制？聊聊
                 </GradientButton>
               </Link>
             </div>

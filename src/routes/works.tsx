@@ -39,16 +39,16 @@ const CATS = [
 ];
 
 const WORKS = [
-  { src: work1, title: "霓虹之城", tag: "海报设计", views: "12.4k", likes: 892 },
-  { src: char2, title: "波频少女 Yumi", tag: "角色立绘", views: "8.1k", likes: 612 },
-  { src: work4, title: "漫剧《赛博之触》", tag: "AI 漫剧", views: "21k", likes: 1.4 },
-  { src: work3, title: "夜行电波 EP", tag: "AI 音乐封面", views: "9.7k", likes: 524 },
-  { src: char1, title: "AI 向导 Echo", tag: "人设卡", views: "6.3k", likes: 410 },
-  { src: char4, title: "创意守护者", tag: "角色立绘", views: "11.2k", likes: 778 },
-  { src: work2, title: "星辰之约", tag: "海报设计", views: "14.6k", likes: 1.1 },
-  { src: work1, title: "都市未来曲线", tag: "实验作品", views: "5.4k", likes: 320 },
-  { src: work4, title: "Side Story · 04", tag: "AI 漫剧", views: "7.8k", likes: 489 },
-];
+  { slug: "neon-city", src: work1, title: "霓虹之城", tag: "海报设计", views: "12.4k", likes: 892 },
+  { slug: null, src: char2, title: "波频少女 Yumi", tag: "角色立绘", views: "8.1k", likes: 612 },
+  { slug: "cyber-touch", src: work4, title: "漫剧《赛博之触》", tag: "AI 漫剧", views: "21k", likes: 1.4 },
+  { slug: "night-radio", src: work3, title: "夜行电波 EP", tag: "AI 音乐封面", views: "9.7k", likes: 524 },
+  { slug: null, src: char1, title: "AI 向导 Echo", tag: "人设卡", views: "6.3k", likes: 410 },
+  { slug: null, src: char4, title: "创意守护者", tag: "角色立绘", views: "11.2k", likes: 778 },
+  { slug: "starry-promise", src: work2, title: "星辰之约", tag: "海报设计", views: "14.6k", likes: 1.1 },
+  { slug: null, src: work1, title: "都市未来曲线", tag: "实验作品", views: "5.4k", likes: 320 },
+  { slug: null, src: work4, title: "Side Story · 04", tag: "AI 漫剧", views: "7.8k", likes: 489 },
+] as const;
 
 const TOP = [
   { rank: 1, title: "霓虹之城", views: "12.4k" },
@@ -119,30 +119,38 @@ function WorksPage() {
       {/* GRID + SIDEBAR */}
       <section className="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:px-8 lg:grid-cols-[1fr_280px]">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {WORKS.map((w, i) => (
-            <GlassCard
-              key={i}
-              className="group overflow-hidden p-0 animate-fade-up"
-              style={{ animationDelay: `${i * 60}ms` }}
-            >
-              <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={w.src}
-                  alt={w.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4">
-                <div className="text-xs text-cyan-glow">{w.tag}</div>
-                <div className="mt-1 font-medium">{w.title}</div>
-                <div className="mt-3 flex gap-4 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><Eye className="h-3 w-3" /> {w.views}</span>
-                  <span className="flex items-center gap-1"><Heart className="h-3 w-3" /> {w.likes}k</span>
+          {WORKS.map((w, i) => {
+            const card = (
+              <GlassCard
+                className="group h-full overflow-hidden p-0 animate-fade-up"
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img
+                    src={w.src}
+                    alt={w.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
-              </div>
-            </GlassCard>
-          ))}
+                <div className="p-4">
+                  <div className="text-xs text-cyan-glow">{w.tag}</div>
+                  <div className="mt-1 font-medium">{w.title}</div>
+                  <div className="mt-3 flex gap-4 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1"><Eye className="h-3 w-3" /> {w.views}</span>
+                    <span className="flex items-center gap-1"><Heart className="h-3 w-3" /> {w.likes}k</span>
+                  </div>
+                </div>
+              </GlassCard>
+            );
+            return w.slug ? (
+              <Link key={i} to="/works/$slug" params={{ slug: w.slug }}>
+                {card}
+              </Link>
+            ) : (
+              <div key={i}>{card}</div>
+            );
+          })}
         </div>
 
         <aside className="lg:sticky lg:top-24 lg:h-fit">
