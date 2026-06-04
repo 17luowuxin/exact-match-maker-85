@@ -129,7 +129,7 @@ function CharactersPage() {
               <div className="p-5">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-cyan-glow">{c.tag}</span>
-                  <span className="text-pink-glow">♥ {c.heat.toLocaleString()}</span>
+                  <span className="text-pink-glow">热度 {c.heat.toLocaleString()}</span>
                 </div>
                 <div className="mt-1 text-lg font-bold">{c.name}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{c.line}</p>
