@@ -11,6 +11,7 @@ const NAV = [
   { to: "/characters", label: "角色档案馆" },
   { to: "/comics", label: "AI 漫剧馆" },
   { to: "/music", label: "AI 音乐馆" },
+  { to: "/lab", label: "AI 实验室" },
   { to: "/contact", label: "联系我" },
 ] as const;
 
