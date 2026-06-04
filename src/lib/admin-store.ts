@@ -22,7 +22,7 @@ export type ResourceSchema = {
   fields: Field[];
 };
 
-export const SCHEMAS: Record<ResourceKey, ResourceSchema> = {
+export const SCHEMAS: { [K in ResourceKey]: ResourceSchema } = {
   works: {
     key: "works",
     label: "创意作品",
