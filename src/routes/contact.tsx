@@ -1,133 +1,142 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { GlassCard } from "@/components/GlassCard";
 import { GradientButton } from "@/components/GradientButton";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Mail, MessageCircle, QrCode, Send } from "lucide-react";
+import {
+  MessageCircle,
+  QrCode,
+  Sparkles,
+  BookOpen,
+  Film,
+  Music,
+  UserCircle2,
+  ArrowRight,
+} from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "联系洛洛小工坊 — 商务合作" },
+      { title: "联系洛洛 — 洛洛创意工坊" },
       {
         name: "description",
-        content: "统一商务入口：微信、QQ、邮箱、B 站、小红书。AI 海报、角色、漫剧、音乐、IP 世界观定制。",
+        content:
+          "欢迎交流创作与合作：AI 创作支持、Niji7 词会、AI 漫剧合作、AI 音乐合作、IP 设计合作。",
       },
-      { property: "og:title", content: "联系洛洛小工坊" },
+      { property: "og:title", content: "联系洛洛 — 洛洛创意工坊" },
     ],
   }),
   component: ContactPage,
 });
 
-const CHANNELS = [
-  { icon: QrCode, name: "微信", value: "luoluo-studio", note: "扫码或搜索 ID" },
-  { icon: MessageCircle, name: "QQ", value: "888 888 888", note: "工作日 10:00 – 22:00" },
-  { icon: Mail, name: "邮箱", value: "hello@luoluo.studio", note: "48 小时内回复" },
-  { icon: Send, name: "社交", value: "B 站 / 小红书 @洛洛小工坊", note: "日常作品与花絮" },
-];
-
-const SERVICES = [
-  "AI 海报设计",
-  "角色设计",
-  "漫剧制作",
-  "AI 音乐制作",
-  "IP 世界观构建",
-];
-
-const STEPS = [
-  { n: "01", t: "提交需求", d: "聊清楚预算、风格、用途。" },
-  { n: "02", t: "沟通设定", d: "确认设定卡 / 风格板。" },
-  { n: "03", t: "创作设计", d: "进入 AI + 人工的迭代周期。" },
-  { n: "04", t: "成品交付", d: "源文件 + 高分辨率成片。" },
-];
-
-const FAQ = [
-  { q: "可以定制专属角色吗？", a: "可以。我们提供从人设到立绘到 IP 世界观的全流程。" },
-  { q: "是否接商业项目？", a: "支持。品牌联名、广告海报、活动主视觉都欢迎合作。" },
-  { q: "交付周期一般多久？", a: "单图 3–7 天，系列 / 漫剧 / 音乐项目通常 2–6 周。" },
-  { q: "可以签 NDA 吗？", a: "可以，商业项目默认走保密流程。" },
-];
+const TOPICS = [
+  { icon: Sparkles, name: "AI 创作支持", desc: "P 值授权 / 断充 · 灵活方案" },
+  { icon: BookOpen, name: "Niji7 词会", desc: "高质量词包 · 持续更新" },
+  { icon: Film, name: "AI 漫剧合作", desc: "角色 · 剧情 · 封面共创" },
+  { icon: Music, name: "AI 音乐合作", desc: "封面 · 歌词 · 视觉" },
+  { icon: UserCircle2, name: "IP 设计合作", desc: "原创角色 · 虚拟形象" },
+] as const;
 
 function ContactPage() {
   return (
     <>
       {/* HERO */}
       <section className="relative overflow-hidden pt-12 md:pt-20">
-        <div className="mx-auto max-w-4xl px-4 pb-12 text-center md:px-8 md:pb-20">
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-10 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-iris/30 blur-3xl"
+        />
+        <div className="mx-auto max-w-4xl px-4 pb-12 text-center md:px-8 md:pb-16">
           <div className="mb-4 inline-flex rounded-full glass px-4 py-1.5 text-xs text-cyan-glow">
-            LET'S TALK
+            LET'S CREATE
           </div>
           <h1 className="font-display text-5xl font-bold leading-tight md:text-7xl animate-fade-up">
-            <span className="text-gradient">联系洛洛小工坊</span>
+            <span className="text-gradient">联系洛洛</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "120ms" }}>
-            把你的想法、品牌、剧本、声音 —— 任何 AI 能放大的东西 —— 交给我们。
+          <p
+            className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg animate-fade-up"
+            style={{ animationDelay: "120ms" }}
+          >
+            欢迎交流创作与合作。
           </p>
-          <div className="mt-8 flex justify-center gap-3 animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <GradientButton size="lg">
-              <MessageCircle className="h-4 w-4" /> 微信联系
-            </GradientButton>
-            <GradientButton size="lg" variant="ghost">
-              <Mail className="h-4 w-4" /> 邮箱联系
-            </GradientButton>
+          <div
+            className="mt-8 flex justify-center animate-fade-up"
+            style={{ animationDelay: "200ms" }}
+          >
+            <a href="#contact-channels">
+              <GradientButton size="lg">
+                <MessageCircle className="h-4 w-4" /> 立即咨询
+              </GradientButton>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* CHANNELS */}
+      {/* TOPICS */}
       <section className="mx-auto max-w-7xl px-4 py-8 md:px-8">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {CHANNELS.map((c, i) => {
-            const Icon = c.icon;
+        <SectionHeading eyebrow="TOPICS" title="可以聊的方向" />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {TOPICS.map((t, i) => {
+            const Icon = t.icon;
             return (
-              <GlassCard key={c.name} className="p-6 animate-fade-up" style={{ animationDelay: `${i * 80}ms` }}>
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-primary shadow-glow">
+              <GlassCard
+                key={t.name}
+                className="flex items-start gap-4 p-6 animate-fade-up"
+                style={{ animationDelay: `${i * 70}ms` }}
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary shadow-glow">
                   <Icon className="h-6 w-6 text-white" />
                 </span>
-                <h3 className="mt-5 text-lg font-bold">{c.name}</h3>
-                <div className="mt-1 text-sm text-cyan-glow">{c.value}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{c.note}</div>
+                <div>
+                  <div className="text-base font-bold">{t.name}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">
+                    {t.desc}
+                  </div>
+                </div>
               </GlassCard>
             );
           })}
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
-        <SectionHeading eyebrow="SERVICES" title="我们能做的事" />
-        <div className="mt-10 flex flex-wrap gap-3">
-          {SERVICES.map((s) => (
-            <span key={s} className="glass rounded-full px-5 py-2.5 text-sm hover:border-iris/60 hover:text-white">
-              {s}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* PROCESS */}
-      <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
-        <SectionHeading eyebrow="PROCESS" title="合作流程" />
-        <div className="mt-10 grid gap-5 md:grid-cols-4">
-          {STEPS.map((s, i) => (
-            <GlassCard key={s.n} className="p-6 animate-fade-up" style={{ animationDelay: `${i * 80}ms` }}>
-              <div className="font-display text-4xl font-bold text-gradient">{s.n}</div>
-              <div className="mt-3 text-lg font-bold">{s.t}</div>
-              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+      {/* QR CARDS */}
+      <section
+        id="contact-channels"
+        className="mx-auto max-w-5xl px-4 py-16 md:px-8"
+      >
+        <SectionHeading
+          eyebrow="CONTACT"
+          title="扫码联系"
+          subtitle="添加微信或 QQ，一对一沟通创作需求。"
+          align="center"
+        />
+        <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
+          {[
+            { name: "微信", id: "luoluo-studio" },
+            { name: "QQ", id: "888 888 888" },
+          ].map((c, i) => (
+            <GlassCard
+              key={c.name}
+              className="p-6 text-center animate-fade-up"
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <div className="mx-auto flex aspect-square w-full max-w-[220px] items-center justify-center rounded-2xl border border-iris/30 bg-background/60">
+                <QrCode className="h-16 w-16 text-muted-foreground opacity-50" />
+              </div>
+              <div className="mt-5 text-lg font-bold">{c.name}</div>
+              <div className="mt-1 text-sm text-cyan-glow">{c.id}</div>
+              <div className="mt-1 text-xs text-muted-foreground">
+                二维码上传后将在此处展示
+              </div>
             </GlassCard>
           ))}
         </div>
-      </section>
 
-      {/* FAQ */}
-      <section className="mx-auto max-w-3xl px-4 py-16 md:px-8">
-        <SectionHeading eyebrow="FAQ" title="常见问题" align="center" />
-        <div className="mt-10 space-y-4">
-          {FAQ.map((f, i) => (
-            <GlassCard key={i} className="p-6">
-              <div className="font-medium">Q：{f.q}</div>
-              <div className="mt-2 text-sm text-muted-foreground">A：{f.a}</div>
-            </GlassCard>
-          ))}
+        <div className="mt-10 flex justify-center">
+          <Link to="/services">
+            <GradientButton size="lg">
+              立即咨询 <ArrowRight className="h-4 w-4" />
+            </GradientButton>
+          </Link>
         </div>
       </section>
     </>

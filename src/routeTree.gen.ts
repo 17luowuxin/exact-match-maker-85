@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as MusicRouteImport } from './routes/music'
 import { Route as LabRouteImport } from './routes/lab'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -21,6 +22,11 @@ import { Route as WorksSlugRouteImport } from './routes/works.$slug'
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
   path: '/works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MusicRoute = MusicRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/lab': typeof LabRoute
   '/music': typeof MusicRoute
+  '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
   '/works/$slug': typeof WorksSlugRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/lab': typeof LabRoute
   '/music': typeof MusicRoute
+  '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
   '/works/$slug': typeof WorksSlugRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/lab': typeof LabRoute
   '/music': typeof MusicRoute
+  '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
   '/works/$slug': typeof WorksSlugRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/lab'
     | '/music'
+    | '/services'
     | '/works'
     | '/works/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/lab'
     | '/music'
+    | '/services'
     | '/works'
     | '/works/$slug'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/lab'
     | '/music'
+    | '/services'
     | '/works'
     | '/works/$slug'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   LabRoute: typeof LabRoute
   MusicRoute: typeof MusicRoute
+  ServicesRoute: typeof ServicesRoute
   WorksRoute: typeof WorksRouteWithChildren
 }
 
@@ -140,6 +153,13 @@ declare module '@tanstack/react-router' {
       path: '/works'
       fullPath: '/works'
       preLoaderRoute: typeof WorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/music': {
@@ -211,6 +231,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   LabRoute: LabRoute,
   MusicRoute: MusicRoute,
+  ServicesRoute: ServicesRoute,
   WorksRoute: WorksRouteWithChildren,
 }
 export const routeTree = rootRouteImport

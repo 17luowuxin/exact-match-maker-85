@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 
 const NAV = [
   { to: "/", label: "首页" },
-  { to: "/works", label: "作品馆" },
-  { to: "/characters", label: "角色宇宙" },
-  { to: "/comics", label: "AI 漫剧" },
-  { to: "/music", label: "AI 音乐" },
-  { to: "/lab", label: "实验室" },
+  { to: "/services", label: "创作服务" },
+  { to: "/works", label: "创意作品馆" },
+  { to: "/characters", label: "角色档案馆" },
+  { to: "/comics", label: "AI 漫剧馆" },
+  { to: "/music", label: "AI 音乐馆" },
   { to: "/contact", label: "联系我" },
 ] as const;
 
