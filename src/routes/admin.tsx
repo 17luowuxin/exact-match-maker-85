@@ -18,7 +18,7 @@ export const Route = createFileRoute("/admin")({
   component: AdminLayout,
 });
 
-const NAV = [
+const NAV: { to: string; label: string; exact?: boolean }[] = [
   { to: "/admin", label: "总览", exact: true },
   { to: "/admin/works", label: "创意作品" },
   { to: "/admin/characters", label: "角色档案" },
@@ -26,7 +26,7 @@ const NAV = [
   { to: "/admin/music", label: "AI 音乐" },
   { to: "/admin/services", label: "创作服务" },
   { to: "/admin/inquiries", label: "咨询留言" },
-] as const;
+];
 
 function AdminLayout() {
   const [authed, setAuthed] = useState(false);
