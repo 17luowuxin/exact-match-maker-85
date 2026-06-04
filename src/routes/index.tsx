@@ -170,7 +170,7 @@ function Home() {
         <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-6">
           {[
             { icon: Sparkles, label: "P 值授权" },
-            { icon: Zap, label: "P 值断充" },
+            { icon: Zap, label: "P 值定制/断" },
             { icon: BookOpen, label: "Niji7 词会" },
             { icon: Film, label: "AI 漫剧" },
             { icon: Music, label: "AI 音乐" },

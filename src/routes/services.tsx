@@ -42,8 +42,8 @@ const SERVICES = [
   },
   {
     icon: Zap,
-    title: "Midjourney P 值断充",
-    desc: "适用于短期创作需求，支持快速创作补充。",
+    title: "Midjourney P 值定制/断",
+    desc: "适用于短期创作需求，支持灵活定制与快速创作补充。",
   },
   {
     icon: BookOpen,
