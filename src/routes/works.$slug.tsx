@@ -152,7 +152,7 @@ function WorkDetail() {
                 Tools
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
-                {work.tools.map((t) => (
+                {work.tools.map((t: string) => (
                   <span key={t} className="glass rounded-full px-3 py-1 text-xs">
                     {t}
                   </span>

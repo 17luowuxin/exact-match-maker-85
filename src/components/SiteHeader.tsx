@@ -11,6 +11,7 @@ const NAV = [
   { to: "/comics", label: "AI 漫剧" },
   { to: "/music", label: "AI 音乐" },
   { to: "/lab", label: "实验室" },
+  { to: "/contact", label: "联系我" },
 ] as const;
 
 export function SiteHeader() {
@@ -63,7 +64,7 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Link to="/contact">
-            <GradientButton size="sm">合作联系</GradientButton>
+            <GradientButton size="sm">聊聊创作</GradientButton>
           </Link>
         </div>
 
@@ -102,7 +103,7 @@ export function SiteHeader() {
             ))}
             <Link to="/contact" onClick={() => setOpen(false)} className="mt-2">
               <GradientButton size="md" className="w-full">
-                合作联系
+                聊聊创作
               </GradientButton>
             </Link>
           </div>

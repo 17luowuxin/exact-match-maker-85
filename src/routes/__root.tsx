@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { NebulaBackground } from "../components/NebulaBackground";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
+import { FloatingContact } from "../components/FloatingContact";
 
 function NotFoundComponent() {
   return (
@@ -138,6 +139,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
+      <FloatingContact />
     </QueryClientProvider>
   );
 }
