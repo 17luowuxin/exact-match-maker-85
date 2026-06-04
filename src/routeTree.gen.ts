@@ -16,7 +16,9 @@ import { Route as LabRouteImport } from './routes/lab'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComicsRouteImport } from './routes/comics'
 import { Route as CharactersRouteImport } from './routes/characters'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
 
 const WorksRoute = WorksRouteImport.update({
@@ -54,10 +56,20 @@ const CharactersRoute = CharactersRouteImport.update({
   path: '/characters',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
 } as any)
 const WorksSlugRoute = WorksSlugRouteImport.update({
   id: '/$slug',
@@ -67,6 +79,7 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/characters': typeof CharactersRoute
   '/comics': typeof ComicsRoute
   '/contact': typeof ContactRoute
@@ -75,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
   '/works/$slug': typeof WorksSlugRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,10 +100,12 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
   '/works/$slug': typeof WorksSlugRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/characters': typeof CharactersRoute
   '/comics': typeof ComicsRoute
   '/contact': typeof ContactRoute
@@ -98,11 +114,13 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
   '/works/$slug': typeof WorksSlugRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/characters'
     | '/comics'
     | '/contact'
@@ -111,6 +129,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/works'
     | '/works/$slug'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,9 +141,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/works'
     | '/works/$slug'
+    | '/admin'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/characters'
     | '/comics'
     | '/contact'
@@ -133,10 +154,12 @@ export interface FileRouteTypes {
     | '/services'
     | '/works'
     | '/works/$slug'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   CharactersRoute: typeof CharactersRoute
   ComicsRoute: typeof ComicsRoute
   ContactRoute: typeof ContactRoute
@@ -197,12 +220,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CharactersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/works/$slug': {
       id: '/works/$slug'
@@ -213,6 +250,16 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AdminRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
@@ -226,6 +273,7 @@ const WorksRouteWithChildren = WorksRoute._addFileChildren(WorksRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   CharactersRoute: CharactersRoute,
   ComicsRoute: ComicsRoute,
   ContactRoute: ContactRoute,
