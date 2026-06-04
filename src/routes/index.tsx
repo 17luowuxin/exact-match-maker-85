@@ -8,6 +8,9 @@ import {
   MessageSquare,
   ArrowRight,
   Sparkles,
+  Zap,
+  BookOpen,
+  UserCircle2,
 } from "lucide-react";
 import { GradientButton } from "@/components/GradientButton";
 import { GlassCard } from "@/components/GlassCard";
@@ -146,6 +149,52 @@ function Home() {
               className="relative mx-auto w-full max-w-md rounded-3xl shadow-glow-strong animate-float-y"
             />
           </div>
+        </div>
+      </section>
+
+      {/* SERVICES QUICK GRID */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeading
+            eyebrow="SERVICES"
+            title="创作服务"
+            subtitle="围绕 AI 创作生态的六大服务方向 —— 点击进入创作服务页详细了解。"
+          />
+          <Link
+            to="/services"
+            className="group flex items-center gap-2 text-sm text-cyan-glow hover:text-foreground"
+          >
+            查看全部 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+          </Link>
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-6">
+          {[
+            { icon: Sparkles, label: "P 值授权" },
+            { icon: Zap, label: "P 值断充" },
+            { icon: BookOpen, label: "Niji7 词会" },
+            { icon: Film, label: "AI 漫剧" },
+            { icon: Music, label: "AI 音乐" },
+            { icon: UserCircle2, label: "IP 设计" },
+          ].map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <Link
+                key={s.label}
+                to="/services"
+                className="group"
+              >
+                <GlassCard
+                  className="flex h-full flex-col items-center justify-center gap-3 p-5 text-center animate-fade-up transition-transform group-hover:-translate-y-1"
+                  style={{ animationDelay: `${i * 60}ms` }}
+                >
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-primary shadow-glow">
+                    <Icon className="h-5 w-5 text-white" />
+                  </span>
+                  <div className="text-sm font-medium">{s.label}</div>
+                </GlassCard>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
