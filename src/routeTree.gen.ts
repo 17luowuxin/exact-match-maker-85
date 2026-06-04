@@ -20,6 +20,12 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as AdminWorksRouteImport } from './routes/admin.works'
+import { Route as AdminServicesRouteImport } from './routes/admin.services'
+import { Route as AdminMusicRouteImport } from './routes/admin.music'
+import { Route as AdminInquiriesRouteImport } from './routes/admin.inquiries'
+import { Route as AdminComicsRouteImport } from './routes/admin.comics'
+import { Route as AdminCharactersRouteImport } from './routes/admin.characters'
 
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
@@ -76,6 +82,36 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const AdminWorksRoute = AdminWorksRouteImport.update({
+  id: '/works',
+  path: '/works',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminServicesRoute = AdminServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMusicRoute = AdminMusicRouteImport.update({
+  id: '/music',
+  path: '/music',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminInquiriesRoute = AdminInquiriesRouteImport.update({
+  id: '/inquiries',
+  path: '/inquiries',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminComicsRoute = AdminComicsRouteImport.update({
+  id: '/comics',
+  path: '/comics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCharactersRoute = AdminCharactersRouteImport.update({
+  id: '/characters',
+  path: '/characters',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -87,6 +123,12 @@ export interface FileRoutesByFullPath {
   '/music': typeof MusicRoute
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
+  '/admin/characters': typeof AdminCharactersRoute
+  '/admin/comics': typeof AdminComicsRoute
+  '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/music': typeof AdminMusicRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/works': typeof AdminWorksRoute
   '/works/$slug': typeof WorksSlugRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -99,6 +141,12 @@ export interface FileRoutesByTo {
   '/music': typeof MusicRoute
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
+  '/admin/characters': typeof AdminCharactersRoute
+  '/admin/comics': typeof AdminComicsRoute
+  '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/music': typeof AdminMusicRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/works': typeof AdminWorksRoute
   '/works/$slug': typeof WorksSlugRoute
   '/admin': typeof AdminIndexRoute
 }
@@ -113,6 +161,12 @@ export interface FileRoutesById {
   '/music': typeof MusicRoute
   '/services': typeof ServicesRoute
   '/works': typeof WorksRouteWithChildren
+  '/admin/characters': typeof AdminCharactersRoute
+  '/admin/comics': typeof AdminComicsRoute
+  '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/music': typeof AdminMusicRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/works': typeof AdminWorksRoute
   '/works/$slug': typeof WorksSlugRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -128,6 +182,12 @@ export interface FileRouteTypes {
     | '/music'
     | '/services'
     | '/works'
+    | '/admin/characters'
+    | '/admin/comics'
+    | '/admin/inquiries'
+    | '/admin/music'
+    | '/admin/services'
+    | '/admin/works'
     | '/works/$slug'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -140,6 +200,12 @@ export interface FileRouteTypes {
     | '/music'
     | '/services'
     | '/works'
+    | '/admin/characters'
+    | '/admin/comics'
+    | '/admin/inquiries'
+    | '/admin/music'
+    | '/admin/services'
+    | '/admin/works'
     | '/works/$slug'
     | '/admin'
   id:
@@ -153,6 +219,12 @@ export interface FileRouteTypes {
     | '/music'
     | '/services'
     | '/works'
+    | '/admin/characters'
+    | '/admin/comics'
+    | '/admin/inquiries'
+    | '/admin/music'
+    | '/admin/services'
+    | '/admin/works'
     | '/works/$slug'
     | '/admin/'
   fileRoutesById: FileRoutesById
@@ -248,14 +320,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/admin/works': {
+      id: '/admin/works'
+      path: '/works'
+      fullPath: '/admin/works'
+      preLoaderRoute: typeof AdminWorksRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/services': {
+      id: '/admin/services'
+      path: '/services'
+      fullPath: '/admin/services'
+      preLoaderRoute: typeof AdminServicesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/music': {
+      id: '/admin/music'
+      path: '/music'
+      fullPath: '/admin/music'
+      preLoaderRoute: typeof AdminMusicRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/inquiries': {
+      id: '/admin/inquiries'
+      path: '/inquiries'
+      fullPath: '/admin/inquiries'
+      preLoaderRoute: typeof AdminInquiriesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/comics': {
+      id: '/admin/comics'
+      path: '/comics'
+      fullPath: '/admin/comics'
+      preLoaderRoute: typeof AdminComicsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/characters': {
+      id: '/admin/characters'
+      path: '/characters'
+      fullPath: '/admin/characters'
+      preLoaderRoute: typeof AdminCharactersRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminCharactersRoute: typeof AdminCharactersRoute
+  AdminComicsRoute: typeof AdminComicsRoute
+  AdminInquiriesRoute: typeof AdminInquiriesRoute
+  AdminMusicRoute: typeof AdminMusicRoute
+  AdminServicesRoute: typeof AdminServicesRoute
+  AdminWorksRoute: typeof AdminWorksRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminCharactersRoute: AdminCharactersRoute,
+  AdminComicsRoute: AdminComicsRoute,
+  AdminInquiriesRoute: AdminInquiriesRoute,
+  AdminMusicRoute: AdminMusicRoute,
+  AdminServicesRoute: AdminServicesRoute,
+  AdminWorksRoute: AdminWorksRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
@@ -285,3 +411,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
