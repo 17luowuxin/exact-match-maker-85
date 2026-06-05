@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, Mail, MessageCircle, QrCode, Music } from "lucide-react";
+import { Mail, MessageCircle, QrCode, Music } from "lucide-react";
+import lwxLogo from "@/assets/lwx-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
