@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { GradientButton } from "./GradientButton";
 import { cn } from "@/lib/utils";
+import lwxLogo from "@/assets/lwx-logo.png.asset.json";
 
 const NAV = [
   { to: "/", label: "首页" },
