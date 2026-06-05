@@ -9,10 +9,12 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 md:grid-cols-12 md:px-8">
         {/* Brand */}
         <div className="md:col-span-4">
-          <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-primary shadow-glow">
-              <Sparkles className="h-5 w-5 text-white" />
-            </span>
+          <div className="flex items-center gap-3">
+            <img
+              src={lwxLogo.url}
+              alt="LWX 洛洛小工坊"
+              className="h-10 w-10 object-contain drop-shadow-[0_0_8px_rgba(99,102,241,0.6)]"
+            />
             <span className="font-display text-lg font-bold">洛洛小工坊</span>
           </div>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
