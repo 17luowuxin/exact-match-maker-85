@@ -7,12 +7,12 @@ import { Wand2, Users, Lightbulb, Shuffle, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/lab")({
   head: () => ({
     meta: [
-      { title: "AI 实验室 — 洛无辛智能科技工作室" },
+      { title: "AI 实验室 — 洛无辛工作室" },
       {
         name: "description",
         content: "互动应用 · 创意实验 · 技术探索。AI 绘图、角色生成、灵感引擎、随机创意。",
       },
-      { property: "og:title", content: "AI 实验室 — 洛无辛智能科技工作室" },
+      { property: "og:title", content: "AI 实验室 — 洛无辛工作室" },
     ],
   }),
   component: LabPage,
@@ -37,7 +37,7 @@ function LabPage() {
             <span className="text-gradient">AI 实验室</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: "120ms" }}>
-            这里是洛无辛智能科技工作室的工具堆与实验场。一切都还在生长。
+            这里是洛无辛工作室的工具堆与实验场。一切都还在生长。
           </p>
         </div>
       </section>

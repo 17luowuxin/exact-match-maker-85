@@ -12,10 +12,10 @@ export function SiteFooter() {
           <div className="flex items-center gap-3">
             <img
               src={lwxLogo.url}
-              alt="LWX 洛无辛智能科技工作室"
+              alt="LWX 洛无辛工作室"
               className="h-10 w-10 object-contain drop-shadow-[0_0_8px_rgba(99,102,241,0.6)]"
             />
-            <span className="font-display text-lg font-bold">洛无辛智能科技工作室</span>
+            <span className="font-display text-lg font-bold">洛无辛工作室</span>
           </div>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             玩转 AI，创造无限可能。一个数字创意实验室，专注于 AI 绘画、角色 IP、
@@ -84,7 +84,7 @@ export function SiteFooter() {
 
       <div className="border-t border-iris/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-muted-foreground md:flex-row md:px-8">
-          <span>© {new Date().getFullYear()} 洛无辛智能科技工作室 · NijiMJ Studio</span>
+          <span>© {new Date().getFullYear()} 洛无辛工作室 · NijiMJ Studio</span>
           <span>ICP 备案 XXXXXXX 号 · 用 AI 与爱构建</span>
         </div>
       </div>
