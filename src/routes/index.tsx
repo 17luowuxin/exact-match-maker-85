@@ -24,13 +24,13 @@ import work4 from "@/assets/work-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "洛无辛工作室 | 玩转 AI，创造无限可能" },
+      { title: "洛无辛工坊 | 玩转 AI，创造无限可能" },
       {
         name: "description",
         content:
-          "洛无辛工作室数字创意实验室：AI 绘画、广告海报、人设角色卡、IP 立绘、AI 漫剧、AI 歌曲与互动应用。",
+          "洛无辛工坊数字创意实验室：AI 绘画、广告海报、人设角色卡、IP 立绘、AI 漫剧、AI 歌曲与互动应用。",
       },
-      { property: "og:title", content: "洛无辛工作室 | 玩转 AI，创造无限可能" },
+      { property: "og:title", content: "洛无辛工坊 | 玩转 AI，创造无限可能" },
       {
         property: "og:description",
         content: "数字创意实验室 · 蓝紫宇宙中的 AI 视觉与 IP 宇宙。",
@@ -104,7 +104,7 @@ function Home() {
               <span className="text-gradient">创造无限可能</span>
             </h1>
             <p className="mt-6 max-w-md text-base text-muted-foreground md:text-lg">
-              在蓝紫色的宇宙里，洛无辛工作室是一个由 AI 驱动的创意据点 ——
+              在蓝紫色的宇宙里，洛无辛工坊是一个由 AI 驱动的创意据点 ——
               我们用图像、角色、剧情与声音构建一个不断生长的数字世界。
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -203,7 +203,7 @@ function Home() {
         <SectionHeading
           eyebrow="EXPLORE"
           title="六大创作宇宙入口"
-          subtitle="从一张海报到一个 IP 世界，洛无辛工作室提供完整的 AI 创意叙事链条。"
+          subtitle="从一张海报到一个 IP 世界，洛无辛工坊提供完整的 AI 创意叙事链条。"
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {MODULES.map((m, i) => {
@@ -280,8 +280,8 @@ function Home() {
             <div>
               <SectionHeading
                 eyebrow="ABOUT"
-                title="关于洛无辛工作室"
-                subtitle="我们相信 AI 不只是工具，而是新的创作伙伴。洛无辛工作室是一个把模型、IP 与叙事编织在一起的工作室 —— 在这里，每个角色、每段剧情、每一帧画面，都是一次实验。"
+                title="关于洛无辛工坊"
+                subtitle="我们相信 AI 不只是工具，而是新的创作伙伴。洛无辛工坊是一个把模型、IP 与叙事编织在一起的工作室 —— 在这里，每个角色、每段剧情、每一帧画面，都是一次实验。"
               />
             </div>
             <Link to="/contact">

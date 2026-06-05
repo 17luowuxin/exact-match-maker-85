@@ -12,12 +12,12 @@ import char4 from "@/assets/char-4.jpg";
 export const Route = createFileRoute("/comics")({
   head: () => ({
     meta: [
-      { title: "AI 漫剧馆 — 洛无辛工作室" },
+      { title: "AI 漫剧馆 — 洛无辛工坊" },
       {
         name: "description",
         content: "AI 漫剧 · 剧情宇宙 · 视觉叙事平台。连载、完结、短剧、角色番外、实验剧情。",
       },
-      { property: "og:title", content: "AI 漫剧馆 — 洛无辛工作室" },
+      { property: "og:title", content: "AI 漫剧馆 — 洛无辛工坊" },
       { property: "og:image", content: work4 },
     ],
   }),

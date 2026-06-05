@@ -82,17 +82,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "洛无辛工作室 | 玩转 AI，创造无限可能" },
+      { title: "洛无辛工坊 | 玩转 AI，创造无限可能" },
       {
         name: "description",
         content:
-          "洛无辛工作室 — 数字创意实验室。AI 绘画、人设角色、IP 立绘、AI 漫剧、AI 歌曲与互动应用。",
+          "洛无辛工坊 — 数字创意实验室。AI 绘画、人设角色、IP 立绘、AI 漫剧、AI 歌曲与互动应用。",
       },
-      { name: "author", content: "洛无辛工作室" },
+      { name: "author", content: "洛无辛工坊" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "洛无辛工作室 | 玩转 AI，创造无限可能" },
-      { name: "twitter:title", content: "洛无辛工作室 | 玩转 AI，创造无限可能" },
+      { property: "og:title", content: "洛无辛工坊 | 玩转 AI，创造无限可能" },
+      { name: "twitter:title", content: "洛无辛工坊 | 玩转 AI，创造无限可能" },
       { name: "description", content: "Pixel Perfect is a website builder for AI-powered creative portfolios and brand sites." },
       { property: "og:description", content: "Pixel Perfect is a website builder for AI-powered creative portfolios and brand sites." },
       { name: "twitter:description", content: "Pixel Perfect is a website builder for AI-powered creative portfolios and brand sites." },

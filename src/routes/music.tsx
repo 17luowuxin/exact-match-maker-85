@@ -13,12 +13,12 @@ import work2 from "@/assets/work-2.jpg";
 export const Route = createFileRoute("/music")({
   head: () => ({
     meta: [
-      { title: "AI 音乐馆 — 洛无辛工作室" },
+      { title: "AI 音乐馆 — 洛无辛工坊" },
       {
         name: "description",
         content: "AI 歌曲 · 虚拟音乐人 · 视觉音乐作品。让算法谱写蓝紫色的节奏。",
       },
-      { property: "og:title", content: "AI 音乐馆 — 洛无辛工作室" },
+      { property: "og:title", content: "AI 音乐馆 — 洛无辛工坊" },
       { property: "og:image", content: work3 },
     ],
   }),
