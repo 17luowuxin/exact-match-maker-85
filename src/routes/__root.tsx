@@ -91,6 +91,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "洛洛小工坊" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "洛洛小工坊 | 玩转 AI，创造无限可能" },
+      { name: "twitter:title", content: "洛洛小工坊 | 玩转 AI，创造无限可能" },
+      { name: "description", content: "Pixel Perfect is a website builder for AI-powered creative portfolios and brand sites." },
+      { property: "og:description", content: "Pixel Perfect is a website builder for AI-powered creative portfolios and brand sites." },
+      { name: "twitter:description", content: "Pixel Perfect is a website builder for AI-powered creative portfolios and brand sites." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69024f3e-720a-41b4-ad35-942466555eb9/id-preview-603e92c8--83fc7c19-a028-4d48-a6d4-7ac8fb1daaa9.lovable.app-1780594194735.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69024f3e-720a-41b4-ad35-942466555eb9/id-preview-603e92c8--83fc7c19-a028-4d48-a6d4-7ac8fb1daaa9.lovable.app-1780594194735.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
