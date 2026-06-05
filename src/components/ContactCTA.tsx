@@ -30,9 +30,9 @@ export function ContactCTA({
             {subtitle}
           </p>
           <ul className="mt-5 grid gap-1.5 text-xs text-muted-foreground sm:grid-cols-2">
-            <li>微信：luoluo-studio</li>
-            <li>QQ：888 888 888</li>
-            <li>邮箱：hello@luoluo.studio</li>
+            <li>微信：XxyLxs9201314</li>
+            <li>QQ：2967923130</li>
+            <li>邮箱：2967923130@qq.com</li>
             <li>48 小时内回复</li>
           </ul>
         </div>
@@ -43,7 +43,7 @@ export function ContactCTA({
               <ArrowRight className="h-4 w-4" />
             </GradientButton>
           </Link>
-          <a href="mailto:hello@luoluo.studio">
+          <a href="mailto:2967923130@qq.com">
             <GradientButton size="lg" variant="ghost">
               <Mail className="h-4 w-4" /> 发送邮件
             </GradientButton>

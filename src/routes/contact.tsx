@@ -111,8 +111,8 @@ function ContactPage() {
         />
         <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
           {[
-            { name: "微信", id: "luoluo-studio" },
-            { name: "QQ", id: "888 888 888" },
+            { name: "微信", id: "XxyLxs9201314" },
+            { name: "QQ", id: "2967923130" },
           ].map((c, i) => (
             <GlassCard
               key={c.name}

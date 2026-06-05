@@ -43,8 +43,8 @@ export function SiteFooter() {
           <h4 className="mb-4 text-sm font-semibold text-foreground">扫码联系</h4>
           <div className="grid grid-cols-2 gap-3">
             {[
-              { name: "微信", id: "luoluo-studio" },
-              { name: "QQ", id: "888 888 888" },
+              { name: "微信", id: "XxyLxs9201314" },
+              { name: "QQ", id: "2967923130" },
             ].map((c) => (
               <div
                 key={c.name}
@@ -75,8 +75,8 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <h4 className="mb-4 text-sm font-semibold text-foreground">合作</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>hello@luoluo.studio</li>
-            <li>微信：luoluo-studio</li>
+            <li>2967923130@qq.com</li>
+            <li>微信：XxyLxs9201314</li>
             <li><Link to="/contact" className="hover:text-foreground">联系页面</Link></li>
           </ul>
         </div>

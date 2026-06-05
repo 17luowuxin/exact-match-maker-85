@@ -31,21 +31,21 @@ export function FloatingContact() {
           <ul className="mt-4 space-y-2 text-xs">
             <li className="flex items-center justify-between">
               <span className="text-muted-foreground">微信</span>
-              <span className="text-cyan-glow">luoluo-studio</span>
+              <span className="text-cyan-glow">XxyLxs9201314</span>
             </li>
             <li className="flex items-center justify-between">
               <span className="text-muted-foreground">QQ</span>
-              <span className="text-cyan-glow">888 888 888</span>
+              <span className="text-cyan-glow">2967923130</span>
             </li>
             <li className="flex items-center justify-between">
               <span className="text-muted-foreground">邮箱</span>
-              <span className="text-cyan-glow">hello@luoluo.studio</span>
+              <span className="text-cyan-glow">2967923130@qq.com</span>
             </li>
           </ul>
 
           <div className="mt-4 flex gap-2">
             <a
-              href="mailto:hello@luoluo.studio"
+              href="mailto:2967923130@qq.com"
               className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-gradient-primary px-3 py-2 text-xs font-medium text-white shadow-glow"
             >
               <Mail className="h-3.5 w-3.5" /> 发邮件
