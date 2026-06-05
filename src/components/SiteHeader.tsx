@@ -38,9 +38,13 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-8">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-primary shadow-glow">
-            <Sparkles className="h-5 w-5 text-white" />
-            <span className="absolute inset-0 rounded-xl bg-gradient-primary opacity-50 blur-md animate-pulse-glow" />
+          <span className="relative flex h-10 w-10 items-center justify-center">
+            <span className="absolute inset-0 rounded-full bg-iris/40 blur-lg opacity-70 animate-pulse-glow" />
+            <img
+              src={lwxLogo.url}
+              alt="LWX 洛洛小工坊"
+              className="relative h-10 w-10 object-contain drop-shadow-[0_0_8px_rgba(99,102,241,0.6)]"
+            />
           </span>
           <span className="font-display text-lg font-bold tracking-tight text-foreground group-hover:text-gradient">
             洛洛小工坊
