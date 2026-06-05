@@ -12,13 +12,13 @@ import char4 from "@/assets/char-4.jpg";
 export const Route = createFileRoute("/characters")({
   head: () => ({
     meta: [
-      { title: "角色档案馆 — 洛洛小工坊" },
+      { title: "角色档案馆 — 洛无辛智能科技工作室" },
       {
         name: "description",
         content:
-          "NijiMJ / 洛洛小工坊 · IP 角色宇宙系统：主角色、AI 向导、漫剧角色、音乐角色、实验体。",
+          "NijiMJ / 洛无辛智能科技工作室 · IP 角色宇宙系统：主角色、AI 向导、漫剧角色、音乐角色、实验体。",
       },
-      { property: "og:title", content: "角色档案馆 — 洛洛小工坊" },
+      { property: "og:title", content: "角色档案馆 — 洛无辛智能科技工作室" },
       { property: "og:image", content: loroHero },
     ],
   }),
@@ -50,7 +50,7 @@ function CharactersPage() {
               <span className="text-gradient">角色档案馆</span>
             </h1>
             <p className="mt-4 max-w-lg text-lg text-muted-foreground">
-              NijiMJ · 洛洛小工坊 IP 角色宇宙系统。每一个角色都不是孤岛，
+              NijiMJ · 洛无辛智能科技工作室 IP 角色宇宙系统。每一个角色都不是孤岛，
               而是同一个数字世界里的不同表情。
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-xs">

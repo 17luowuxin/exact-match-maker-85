@@ -15,12 +15,12 @@ import char4 from "@/assets/char-4.jpg";
 export const Route = createFileRoute("/works")({
   head: () => ({
     meta: [
-      { title: "创意作品馆 — 洛洛小工坊" },
+      { title: "创意作品馆 — 洛无辛智能科技工作室" },
       {
         name: "description",
         content: "AI 驱动的视觉创作与数字艺术展示空间：海报、角色立绘、漫剧封面、AI 音乐视觉。",
       },
-      { property: "og:title", content: "创意作品馆 — 洛洛小工坊" },
+      { property: "og:title", content: "创意作品馆 — 洛无辛智能科技工作室" },
       { property: "og:image", content: work1 },
     ],
   }),

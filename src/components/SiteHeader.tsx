@@ -42,12 +42,12 @@ export function SiteHeader() {
             <span className="absolute inset-0 rounded-full bg-iris/40 blur-lg opacity-70 animate-pulse-glow" />
             <img
               src={lwxLogo.url}
-              alt="LWX 洛洛小工坊"
+              alt="LWX 洛无辛智能科技工作室"
               className="relative h-10 w-10 object-contain drop-shadow-[0_0_8px_rgba(99,102,241,0.6)]"
             />
           </span>
           <span className="font-display text-lg font-bold tracking-tight text-foreground group-hover:text-gradient">
-            洛洛小工坊
+            洛无辛智能科技工作室
           </span>
         </Link>
 
